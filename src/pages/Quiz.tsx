@@ -51,7 +51,7 @@ function QuizComponent() {
   };
 
   return (
-      <div className="relative w-full max-w-md mx-auto">
+      <div className="relative w-full h-full max-w-md mx-auto">
         {/* Progress indicator */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="relative w-24 h-24 bg-white rounded-full p-2 shadow-lg">

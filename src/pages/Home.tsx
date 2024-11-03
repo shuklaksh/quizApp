@@ -2,7 +2,7 @@ import Logo from '../assets/Logo.svg'
 
 export default function Home() {
     return (
-      <>
+      <div className='w-full h-full'>
         <div className="pt-8 pb-16">
           <div className="flex items-center gap-2">
             <img src={Logo} />
@@ -23,6 +23,6 @@ export default function Home() {
             Start
           </button>
         </div>
-      </>
+      </div>
     )
   }
