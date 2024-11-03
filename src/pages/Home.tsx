@@ -2,7 +2,7 @@ import Logo from '../assets/Logo.svg'
 
 export default function Home() {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-purple-200 flex flex-col items-center px-4">
+      <>
         <div className="pt-8 pb-16">
           <div className="flex items-center gap-2">
             <img src={Logo} />
@@ -23,6 +23,6 @@ export default function Home() {
             Start
           </button>
         </div>
-      </div>
+      </>
     )
   }
