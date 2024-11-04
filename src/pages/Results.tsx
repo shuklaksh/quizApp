@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ResultBar from "../components/ProgressBar";
+import { useNavigate } from "react-router-dom";
 
 // Mock data for the quiz results
 const mockResults = {
@@ -12,6 +13,10 @@ const mockResults = {
 
 export default function Results() {
   const [results] = useState(mockResults);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/")
+  }
 
   return (
     <div className="relative w-full h-full max-w-md mx-auto ">
@@ -41,7 +46,10 @@ export default function Results() {
           </div>
         </div>
 
-        <button className="w-full mt-8 bg-red-500 hover:bg-red-600 text-white py-6 text-xl rounded-full">
+        <button 
+        className="w-full mt-8 bg-red-500 hover:bg-red-600 text-white py-6 text-xl rounded-full"
+        onClick={handleClick}
+        >
           Start Again
         </button>
       </div>

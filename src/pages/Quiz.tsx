@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Question {
@@ -49,9 +49,8 @@ function QuizComponent() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOptions([]); // Reset selections for the next question
-      if(currentQuestionIndex === questions.length - 1) {
-        navigate("./Results")
-      }
+    } else {
+      navigate("/result"); // Corrected the path to navigate to the Results page
     }
   };
 
@@ -126,7 +125,7 @@ function QuizComponent() {
             <button
               className="w-full mt-8 bg-red-500 hover:bg-red-600 text-white py-6 text-xl rounded-full"
               onClick={handleNext}
-              disabled={selectedOptions.length === 0 || currentQuestionIndex === questions.length - 1}
+              disabled={selectedOptions.length === 0}
             >
               {currentQuestionIndex === questions.length - 1 ? "Finish" : "Next"}
               <span className="ml-2">→</span>
