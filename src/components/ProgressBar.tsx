@@ -6,7 +6,8 @@ interface GaugeProps {
   percentage?: number;
 }
 
-export default function ResultBar({ percentage = 60 }: GaugeProps) {
+export default function ResultBar({ percentage = 0}: GaugeProps) {
+  console.log(percentage,"percentage")
   return (
     <div className="relative w-48 h-24">
       {/* SVG for the gauge */}

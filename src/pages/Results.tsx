@@ -1,18 +1,12 @@
-"use client";
-
-import { useState } from "react";
-import ResultBar from "../components/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import ResultBar from "../components/ProgressBar";
+import { useQuiz } from "../context";
 
-// Mock data for the quiz results
-const mockResults = {
-  percentage: 60,
-  correct: 3,
-  incorrect: 2,
-};
 
 export default function Results() {
-  const [results] = useState(mockResults);
+  const {scoreReport } = useQuiz(); 
+ const percentage = scoreReport ? (Number(scoreReport.correct) * 100) / Number(scoreReport.totalCount) : 0;
+
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/")
@@ -25,7 +19,7 @@ export default function Results() {
           Your result
         </h1>
         <div className="w-full flex justify-center items-center mb-20">
-          <ResultBar />
+          <ResultBar  percentage={percentage }/>
         </div>
 
         {/* Stats */}
@@ -33,14 +27,14 @@ export default function Results() {
           <div className="rounded-2xl bg-green-50 p-4">
             <div className="flex items-center gap-3">
               <div className="h-3 w-3 rounded-full bg-green-500" />
-              <span className="text-xl font-bold">{results.correct}</span>
+              <span className="text-xl font-bold">{scoreReport?.correct}</span>
               <span className="text-xl text-gray-600">Correct</span>
             </div>
           </div>
           <div className="rounded-2xl bg-red-50 p-4">
             <div className="flex items-center gap-3">
               <div className="h-3 w-3 rounded-full bg-red-500" />
-              <span className="text-xl font-bold">{results.incorrect}</span>
+              <span className="text-xl font-bold">{scoreReport?.incorrect}</span>
               <span className="text-xl text-gray-600">Incorrect</span>
             </div>
           </div>

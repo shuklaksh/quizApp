@@ -1,10 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import Logo from '../assets/Logo.svg'
+import { useQuiz } from '../context';
 
 export default function Home() {
+  const { startQuiz } = useQuiz();
+
   const navigate = useNavigate();
-  const handleStart = () => {
-    navigate("/quiz");
+  const handleStart =async () => {
+    const result = await startQuiz();
+    if(result == 'success') {
+      navigate("/quiz");
+    }
+    
   }
     return (
       <div className='flex flex-col items-center justify-center'>
