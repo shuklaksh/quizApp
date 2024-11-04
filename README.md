@@ -5,9 +5,6 @@ A fun quiz app for you ti test your knowledge
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
