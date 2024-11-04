@@ -76,6 +76,15 @@ function QuizComponent() {
       </div>
 
       <div className="w-full bg-white rounded-3xl overflow-hidden pt-14 shadow-lg">
+          {currentQuestion?.image && (
+            <div className="flex items-center justify-center">
+              <img
+                src={currentQuestion.image}
+                alt="Question"
+                className="w-50 h-50 object-contain" // Adjust the size as needed
+              />
+            </div>
+          )}
         <div className="p-6">
           {/* Question */}
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
