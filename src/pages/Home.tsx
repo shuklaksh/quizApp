@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom'
 import Logo from '../assets/Logo.svg'
 
 export default function Home() {
+  const navigate = useNavigate();
+  const handleStart = () => {
+    navigate("/quiz");
+  }
     return (
-      <div className='w-full h-full'>
+      <div className='flex flex-col items-center justify-center'>
         <div className="pt-8 pb-16">
           <div className="flex items-center gap-2">
             <img src={Logo} />
@@ -19,6 +24,7 @@ export default function Home() {
           
           <button 
             className="w-full max-w-xs bg-red-500 hover:bg-red-600 text-white rounded-full py-6 text-xl"
+            onClick={handleStart}
           >
             Start
           </button>

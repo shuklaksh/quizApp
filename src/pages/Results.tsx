@@ -1,29 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import ResultBar from "../components/ProgressBar"
-
+import { useState } from "react";
+import ResultBar from "../components/ProgressBar";
 
 // Mock data for the quiz results
 const mockResults = {
   percentage: 60,
   correct: 3,
   incorrect: 2,
-}
+};
 
 export default function Results() {
-  const [results] = useState(mockResults)
+  const [results] = useState(mockResults);
 
   return (
-    <div className="relative w-full h-full max-w-md mx-auto">
-
-      {/* Main content */}
-      <div className="w-full bg-white rounded-3xl overflow-hidden py-14 shadow-lg">
-        <h1 className="mb-8 text-center text-4xl font-bold text-gray-800">Your result</h1>
+    <div className="relative w-full h-full max-w-md mx-auto ">
+      <div className="w-full bg-white rounded-3xl overflow-hidden pt-14 shadow-lg p-8">
+        <h1 className="mb-8 text-center text-4xl font-bold text-gray-800">
+          Your result
+        </h1>
         <div className="w-full flex justify-center items-center mb-20">
           <ResultBar />
         </div>
-       
 
         {/* Stats */}
         <div className="space-y-4">
@@ -43,11 +41,10 @@ export default function Results() {
           </div>
         </div>
 
-        {/* button */}
-        <button className="mt-8 w-full rounded-full bg-red-500 p-6 text-xl font-semibold text-white hover:bg-red-600">
+        <button className="w-full mt-8 bg-red-500 hover:bg-red-600 text-white py-6 text-xl rounded-full">
           Start Again
         </button>
       </div>
     </div>
-  )
+  );
 }

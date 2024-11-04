@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Question {
   id: number;
@@ -34,6 +35,7 @@ const questions: Question[] = [
 function QuizComponent() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -47,6 +49,9 @@ function QuizComponent() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOptions([]); // Reset selections for the next question
+      if(currentQuestionIndex === questions.length - 1) {
+        navigate("./Results")
+      }
     }
   };
 
